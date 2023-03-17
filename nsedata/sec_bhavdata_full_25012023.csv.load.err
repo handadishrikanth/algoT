@@ -1,0 +1,4 @@
+Error creating bean with name 'dataSource' defined in class path resource [com/exp/algot/config/H2Config.class]: Unexpected exception during bean creation[Ljava.lang.StackTraceElement;@2a01881e
+\n
+[Ljava.lang.StackTraceElement;@5ecd47b2
+\n

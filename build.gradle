@@ -1,0 +1,52 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.3'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.exp'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+ext{
+	javaEEVersion='8.0'
+	hibernateVersion='5.4.10.Final'
+	hibernateValidatorVersion='6.0.12.Final'
+	//slf4jVersion='2.0.5'
+	//h2Version='1.4.196'
+	//logbackVersion='1.4.5'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'	
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	
+	//implementation group: 'org.apache.commons', name: 'commons-csv', version: '1.10.0'
+	implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+	//implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+	implementation group: 'com.opencsv', name: 'opencsv', version: '5.7.1'
+	implementation "org.slf4j:slf4j-api"
+	implementation "com.h2database:h2"
+	implementation "org.apache.commons:commons-lang3"
+	implementation "org.hibernate:hibernate-validator"
+	implementation "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
+	//implementation "commons-io:commons-io"
+	compileOnly group: 'jakarta.platform', name: 'jakarta.jakartaee-api', version: '10.0.0'
+	
+
+	runtimeOnly "ch.qos.logback:logback-classic"                                                                                                                                                      
+    runtimeOnly "ch.qos.logback:logback-core"
+    runtimeOnly "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+	//compileOnly "javax:javaee-api:${javaEEVersion}"
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
